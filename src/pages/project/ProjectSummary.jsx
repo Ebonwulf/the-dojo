@@ -1,5 +1,4 @@
 import Avatar from '../../components/avatar/Avatar';
-import './Project.scss';
 const ProjectSummary = ({ project }) => {
   return (
     <>
