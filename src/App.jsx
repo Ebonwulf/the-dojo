@@ -7,6 +7,7 @@ import Signup from './pages/signup/Signup';
 import Project from './pages/project/Project';
 import Navbar from './components/navbar/Navbar';
 import Sidebar from './components/sidebar/Sidebar';
+import OnlineUsers from './components/OnlineUsers/OnlineUsers';
 import './App.scss';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
               </Route>
             </Switch>
           </div>
+          {user && <OnlineUsers />}
         </BrowserRouter>
       )}
     </div>
