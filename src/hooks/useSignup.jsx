@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { projectAuth, projectStorage } from '../firebase/config';
+import { projectAuth, projectStorage } from '../Firebase/config';
 import { useAuthContext } from './useAuthContext';
 
 export const useSignup = () => {
@@ -8,7 +8,7 @@ export const useSignup = () => {
   const [isPending, setIsPending] = useState(false);
   const { dispatch } = useAuthContext();
 
-  const signup = async (email, password, displayName, thumbnail) => {
+  const signup = async (displayName, email, password, thumbnail) => {
     setError(null);
     setIsPending(true);
 
