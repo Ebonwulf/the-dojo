@@ -4,7 +4,7 @@ import { useCollection } from '../../hooks/useCollection';
 import { timestamp } from '../../Firebase/config';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { useFirestore } from '../../hooks/useFirestore';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Create.scss';
 
 const categories = [
@@ -22,7 +22,7 @@ const Create = () => {
   const [assignedUsers, setAssignedUsers] = useState([]);
   const [users, setUsers] = useState([]);
   const [formError, setFormError] = useState(null);
-  const history = useHistory();
+  const navigate = useNavigate();
   const { documents } = useCollection('users');
   const { user } = useAuthContext();
   const { addDocument, response } = useFirestore('projects');
@@ -70,7 +70,7 @@ const Create = () => {
     };
     await addDocument(project);
     if (!response.error) {
-      history.push('/');
+      navigate('/');
     }
   };
 
@@ -93,8 +93,7 @@ const Create = () => {
             required
             type='text'
             onChange={(e) => setDetails(e.target.value)}
-            value={details}
-          ></textarea>
+            value={details}></textarea>
         </label>
         <label>
           <span>Due date:</span>
